@@ -1,0 +1,10 @@
+web:
+  build: .
+  dockerfile: ./config/dockerfiles/Dockerfile.web
+  environment:
+    RACK_ENV: development
+    RAILS_ENV: development
+  ports:
+    - "3000:3000"
+  volumes:
+    - .:/app

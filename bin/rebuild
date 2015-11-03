@@ -1,0 +1,4 @@
+#!/bin/sh
+
+docker build -t ch/ch-base -f ./config/dockerfiles/Dockerfile.base.dev .
+docker-compose build

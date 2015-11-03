@@ -1,0 +1,23 @@
+FROM rails:4.2.4
+
+WORKDIR /app
+
+ONBUILD COPY Gemfile Gemfile
+ONBUILD COPY Gemfile.lock Gemfile.lock
+
+ONBUILD RUN bundle install --without production
+
+ONBUILD COPY app app
+ONBUILD COPY bin bin
+ONBUILD COPY config config
+ONBUILD COPY db db
+ONBUILD COPY lib lib
+ONBUILD COPY log log
+ONBUILD COPY public public
+ONBUILD COPY tmp tmp
+ONBUILD COPY vendor vendor
+
+ONBUILD COPY config.ru config.ru
+ONBUILD COPY Rakefile Rakefile
+
+CMD ["bash"]

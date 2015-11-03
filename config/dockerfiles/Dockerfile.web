@@ -1,0 +1,5 @@
+FROM ch/ch-base
+
+EXPOSE 3000
+
+CMD ["./bin/serve"]
