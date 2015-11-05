@@ -1,3 +1,17 @@
 #!/bin/sh
 
+docker create \
+  -v /var/lib/postgresql/data \
+  --name ch_data busybox
+
 ./bin/rebuild
+
+docker-compose up -d db
+docker-compose stop
+
+docker-compose up -d db
+
+docker-compose run --rm web rake db:setup
+
+docker-compose stop
+docker-compose rm -f

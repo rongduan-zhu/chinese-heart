@@ -1,1 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: ch-db
+  username: postgres
+  password: password
 
+development:
+  <<: *default
+  database: ch_dev
+
+test:
+  <<: *default
+  database: ch_test

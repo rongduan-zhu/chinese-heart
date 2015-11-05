@@ -4,7 +4,17 @@ web:
   environment:
     RACK_ENV: development
     RAILS_ENV: development
+  links:
+    - db:ch-db
   ports:
     - "3000:3000"
   volumes:
     - .:/app
+  volumes_from:
+    - ch_data
+db:
+  environment:
+    POSTGRES_PASSWORD: password
+  image: postgres
+  volumes_from:
+    - ch_data

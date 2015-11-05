@@ -2,6 +2,9 @@ FROM rails:4.2.4
 
 WORKDIR /app
 
+VOLUME /app/log
+VOLUME /app/tmp
+
 ONBUILD COPY Gemfile Gemfile
 ONBUILD COPY Gemfile.lock Gemfile.lock
 
@@ -14,7 +17,6 @@ ONBUILD COPY db db
 ONBUILD COPY lib lib
 ONBUILD COPY log log
 ONBUILD COPY public public
-ONBUILD COPY tmp tmp
 ONBUILD COPY vendor vendor
 
 ONBUILD COPY config.ru config.ru
