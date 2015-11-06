@@ -6,6 +6,7 @@ web:
     RAILS_ENV: development
   links:
     - db:ch-db
+    - redis:ch-redis
   ports:
     - "3000:3000"
   volumes:
@@ -18,3 +19,5 @@ db:
   image: postgres
   volumes_from:
     - ch_data
+redis:
+  image: redis
